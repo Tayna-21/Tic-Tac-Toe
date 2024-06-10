@@ -1,0 +1,485 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5em;
+  font-weight: 400;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #070740;
+}
+.wrapper .app-header {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid #7b7b8f;
+}
+.wrapper .app-header .heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 30px 10px;
+  width: 50%;
+}
+.wrapper .app-header .heading h1 {
+  font-size: 20px;
+  color: white;
+}
+.wrapper .app-header .score {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+.wrapper .app-header .score p, .wrapper .app-header .score span {
+  font-size: 28px;
+  color: white;
+}
+.wrapper .app-header .score button {
+  padding: 10px 35px;
+  background-color: #1a1a98;
+  font-size: 16px;
+  color: white;
+  border-radius: 10px;
+  border: none;
+}
+.wrapper .app-header .score button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 4px 4px 10px black;
+          box-shadow: 4px 4px 10px black;
+  -webkit-transition: 0.1s ease-in;
+  transition: 0.1s ease-in;
+  will-change: transform;
+}
+.wrapper .app-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.wrapper .app-body .player {
+  width: 50%;
+  padding: 20px 20px 0 20px;
+}
+.wrapper .app-body .player:first-child {
+  border-right: 1px solid #7b7b8f;
+}
+.wrapper .app-body .player .container {
+  max-width: 650px;
+  margin: 0 auto;
+}
+.wrapper .app-body .player .container .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 50px;
+}
+.wrapper .app-body .player .container .content p {
+  font-size: calc(18px + 0.6493506494vw);
+  color: #cdff04;
+}
+.wrapper .app-body .player .container .content .game-field {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1px 1fr 1px 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  -ms-grid-columns: 1fr 1px 1fr 1px 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1px;
+  width: 300px;
+  height: 300px;
+  background-color: white;
+  -webkit-box-shadow: inset 10px 10px 0 #7b7b8f, inset -10px -10px 0 #7b7b8f;
+          box-shadow: inset 10px 10px 0 #7b7b8f, inset -10px -10px 0 #7b7b8f;
+  border: 2px solid #8b8ba5;
+  border-radius: 10px;
+}
+.wrapper .app-body .player .container .content .game-field > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+.wrapper .app-body .player .container .content .game-field > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+.wrapper .app-body .player .container .content .game-field > *:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+}
+.wrapper .app-body .player .container .content .game-field > *:nth-child(4) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+}
+.wrapper .app-body .player .container .content .game-field > *:nth-child(5) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+}
+.wrapper .app-body .player .container .content .game-field > *:nth-child(6) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+}
+.wrapper .app-body .player .container .content .game-field > *:nth-child(7) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+}
+.wrapper .app-body .player .container .content .game-field > *:nth-child(8) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+}
+.wrapper .app-body .player .container .content .game-field > *:nth-child(9) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 5;
+}
+.wrapper .app-body .player .container .content .game-field[data-disabled=disabled] {
+  pointer-events: none;
+  opacity: 0.75;
+}
+.wrapper .app-body .player .container .content .game-field .game-field-cell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #7b7b8f;
+}
+.wrapper .app-body .player .container .content .game-field .game-field-cell:nth-child(1) {
+  border-radius: 10px 0 0 0;
+}
+.wrapper .app-body .player .container .content .game-field .game-field-cell:nth-child(3) {
+  border-radius: 0 10px 0 0;
+}
+.wrapper .app-body .player .container .content .game-field .game-field-cell:nth-child(7) {
+  border-radius: 0 0 0 10px;
+}
+.wrapper .app-body .player .container .content .game-field .game-field-cell:nth-child(9) {
+  border-radius: 0 0 10px 0;
+}
+.wrapper .app-body .player .container .content .game-field .game-field-cell:hover {
+  background-color: #656575;
+  cursor: pointer;
+  -webkit-transition: 0.1s ease-in;
+  transition: 0.1s ease-in;
+  will-change: transform;
+}
+.wrapper .app-body .player .container .content .game-field .game-field-cell svg {
+  pointer-events: none;
+}
+.wrapper .app-body .player .container .content .game-field .strike {
+  display: none;
+  position: absolute;
+  width: calc(100% - 20px);
+  height: 6px;
+  border-radius: 10px;
+  background-color: #1a1a98;
+}
+.wrapper .app-body .player .container .content .game-field .horizon-up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 10px;
+  top: calc((100% - 20px) / 6);
+}
+.wrapper .app-body .player .container .content .game-field .horizon-middle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 10px;
+  top: calc(50% - 3px);
+}
+.wrapper .app-body .player .container .content .game-field .horizon-down {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 10px;
+  bottom: calc((100% - 20px) / 6);
+}
+.wrapper .app-body .player .container .content .game-field .vertical-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 6px;
+  height: calc(100% - 20px);
+  left: calc((100% - 20px) / 6);
+  bottom: 10px;
+}
+.wrapper .app-body .player .container .content .game-field .vertical-middle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 6px;
+  height: calc(100% - 20px);
+  left: calc(50% - 3px);
+  bottom: 10px;
+}
+.wrapper .app-body .player .container .content .game-field .vertical-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 6px;
+  height: calc(100% - 20px);
+  right: calc((100% - 20px) / 6);
+  bottom: 10px;
+}
+.wrapper .app-body .player .container .content .game-field .diagonal-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: -50px;
+  top: calc(50% - 3px);
+  width: calc(140% - 20px);
+  -webkit-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
+}
+.wrapper .app-body .player .container .content .game-field .diagonal-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  right: -50px;
+  top: calc(50% - 3px);
+  width: calc(140% - 20px);
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+.wrapper .app-body .player .container .content .chat {
+  width: 100%;
+  background-color: #aeaebc;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid white;
+  border-bottom: none;
+}
+.wrapper .app-body .player .container .content .chat .chat-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  background-color: #070740;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid white;
+  padding: 10px;
+}
+.wrapper .app-body .player .container .content .chat .chat-header .icon-background {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #8b8ba5;
+  padding: 7px;
+}
+.wrapper .app-body .player .container .content .chat .chat-header p {
+  font-size: 16px;
+  color: white;
+  margin: 0 10px;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+  padding-top: 40px;
+  max-height: 400px;
+  overflow: auto;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body .message-recipient, .wrapper .app-body .player .container .content .chat .chat-content-container .chat-body .message-sender {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+  min-width: 100px;
+  max-width: 70%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #7b7b8f;
+  -webkit-box-shadow: inset 4px 4px 10px #86869c, inset -1px 1px 10px #4e4e59;
+          box-shadow: inset 4px 4px 10px #86869c, inset -1px 1px 10px #4e4e59;
+  border-radius: 10px;
+  border: 1px solid #676768;
+  padding: 13px;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body .message-recipient .message, .wrapper .app-body .player .container .content .chat .chat-content-container .chat-body .message-sender .message {
+  font-size: 16px;
+  color: white;
+  text-align: left;
+  line-height: 1.3em;
+  word-wrap: break-word;
+  letter-spacing: 0.07em;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body .message-recipient .time, .wrapper .app-body .player .container .content .chat .chat-content-container .chat-body .message-sender .time {
+  width: 100%;
+  text-align: right;
+  font-size: 12px;
+  color: white;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body .message-sender {
+  background-color: #1a1a98;
+  -webkit-box-shadow: inset 4px 4px 10px #3838ce, inset -1px 1px 10px #121269;
+          box-shadow: inset 4px 4px 10px #3838ce, inset -1px 1px 10px #121269;
+  border: 1px solid #141478;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body form {
+  position: sticky;
+  bottom: 0;
+  padding-bottom: 20px;
+  background-color: #aeaebc;
+  border-radius: 10px 10px 0 0;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body form .message-input {
+  position: relative;
+  width: 100%;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body form .message-input input {
+  width: 100%;
+  background-color: #7b7b8f;
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 20px 60px 20px 15px;
+  color: white;
+  font-size: 18px;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body form .message-input input::-webkit-input-placeholder {
+  font-size: 16px;
+  color: white;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body form .message-input input::-moz-placeholder {
+  font-size: 16px;
+  color: white;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body form .message-input input:-ms-input-placeholder {
+  font-size: 16px;
+  color: white;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body form .message-input input::-ms-input-placeholder {
+  font-size: 16px;
+  color: white;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body form .message-input input::placeholder {
+  font-size: 16px;
+  color: white;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body form .message-input button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(-15px, -50%);
+          transform: translate(-15px, -50%);
+  background: none;
+  border: none;
+}
+.wrapper .app-body .player .container .content .chat .chat-content-container .chat-body form .message-input button:hover {
+  cursor: pointer;
+}
